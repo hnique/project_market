@@ -5,11 +5,20 @@
 <!-- top menu -->
 <div class="top-menu">
 	<!-- 로그인 전 -->
-	<div class="d-flex justify-content-end align-items-end">
-		<a href="#" id="signUpBtn">회원가입</a>
-		<button id="signInBtn" type="button" class="btn btn-white">로그인</button>
-	</div>
+<%--<c:if test="${empty userId}">--%>
+		<div class="d-flex justify-content-end">
+			<a href="/user/sign_up_view"><button id="signUpBtn" type="button" class="my-3">회원가입</button></a>
+			<a href="/user/sign_in_view"><button id="signInBtn" type="button" class="mx-2 my-3">로그인</button></a>
+		</div>
+<%--</c:if>--%>
+	
 	<!-- 로그인 후 -->
+<%--<c:if test="${not empty userId}">
+		<div class="d-flex justify-content-end pt-1">
+			<span class="my-3">${userName}님</span>
+			<a href="/user/sign_out"><button id="logoutBtn" type="button" class="ml-4 mr-2">로그아웃</button></a>
+		</div>
+	</c:if>--%>
 </div>
 
 <div class="middle-menu d-flex">
@@ -44,14 +53,20 @@
 </div>
 
 <!-- nav -->
-<nav>
-
+<nav class="menu">
+	<ul class="nav nav-fill pt-1">
+		<li id="categoryBtn"><a href="#" class="nav-link ml-3"><img src="/static/image/menu_icon.png" width="30px"></a></li>
+		<li class="nav-item"><a href="#" class="nav-link menu-text">판매등록</a></li>
+		<li class="nav-item"><a href="#" class="nav-link menu-text">구매등록</a></li>
+		<li class="nav-item"><a href="#" class="nav-link menu-text">마이페이지</a></li>
+		<li class="nav-item"><a href="#" class="nav-link menu-text">채팅</a></li>
+	</ul>
 </nav>
 
 <script>
 $(document).ready(function() {
 	$("#searchBtn").on('click', function() {
-		alert("버튼클릭");
+		alert("검색클릭");
 	});
 });
 </script>
