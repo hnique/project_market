@@ -15,6 +15,16 @@
 <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body>
-	<h1>마켓</h1>
+	<div id="wrap" class="container">
+		<header>
+			<jsp:include page="../include/header.jsp" />
+		</header>
+		<section class="contents">
+			<jsp:include page="../${view}.jsp" />
+		</section>
+		<footer>
+			<jsp:include page="../include/footer.jsp" />
+		</footer>
+	</div>
 </body>
 </html>

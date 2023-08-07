@@ -1,1 +1,49 @@
 @charset "UTF-8";
+
+header {height:210px;}
+
+header > .top-menu {
+	height:60px;
+	background-color: rgb(246, 246, 246);
+}
+
+.top-menu a {
+	text-decoration: none;
+}
+
+header > .middle-menu {
+	height:100px;
+}
+
+.logo > a {
+	text-decoration: none;
+	color: rgb(93, 197, 183);
+	}
+
+.search {
+	position: relative;
+}
+
+.search > .form-control {
+	height:45px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.search > img {
+	position : absolute;
+	cursor: pointer;
+	width: 30px;
+	top: 35px;
+	right: 23px;
+	margin: 0;
+}
+
+header > nav {
+	height:50px;
+	background-color: rgb(93, 197, 183);
+	border-radius: 5px;
+}
+
+.contents {min-height:500px;}
+footer {height:100px;}
