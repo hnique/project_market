@@ -23,11 +23,13 @@
 				<div class="sign-up-box">
 					<!-- 아이디 -->
 					<div class="d-flex align-items-center justify-content-between">
-						<span class="sign-up-subject">아이디</span>
+						<span class="sign-up-subject mr-4">아이디</span>
 						<input type="text" id="loginId" name="loginId" class="form-control" placeholder="아이디를 입력하세요">
+						<button type="button" id="loginIdCheckBtn">중복확인</button>
 					</div>
 					<div class="mb-3">
 						<div id="idCheck" class="warning-text d-none">아이디를 입력해주세요</div>
+						<div id="idCheckLength" class="warning-text d-none">아이디를 4자 이상 입력해주세요.</div>
 						<div id="idCheckDuplicated" class="warning-text d-none">이미 존재하는 아이디 입니다</div>
 						<div id="idCheckOk" class="accept-text d-none">사용 가능한 아이디 입니다!</div>
 					</div>
@@ -87,14 +89,42 @@
 	
 <script>
 $(document).ready(function(){
+	// 중복확인 버튼 클릭
+	$("#loginIdCheckBtn").on('click', function() {
+		// 경고 문구 초기화
+		$("#idCheckLength").addClass('d-none');
+		$("#idCheckDuplicated").addClass('d-none');
+		$("#idCheckOk").addClass('d-none');
+		
+		let loginId = $("#loginId").val().trim();
+		if (loginId.length < 4) {
+			$("#idCheckLength").removeClass('d-none');
+			return;
+		}
+		
+		// AJAX 통신 => 아이디 중복확인
+		$.ajax({
+			url:"/user/is_duplicated_id"
+			, data:{"loginId":loginId}
+			, success:function(data) {
+				if (data.isDuplicatedId) {
+					$("#idCheckDuplicated").removeClass('d-none');
+				} else {
+					$("#idCheckOk").removeClass('d-none');
+				}
+			}
+			, error:function(request, status, error) {
+				alert("중복확인에 실패했습니다.");
+			}
+		});
+	});
+	
 	// 회원가입
 	$("#signUpForm").on('submit', function(e){
 		e.preventDefault();
 		
 		// 경고 문구 초기화
 		$("#idCheck").addClass('d-none');
-		$("#idCheckDuplicated").addClass('d-none');
-		$("#idCheckOk").addClass('d-none');
 		$("#passwordCheck").addClass('d-none');
 		$("#passwordConfirmCheck").addClass('d-none');
 		$("#nameCheck").addClass('d-none');
@@ -107,17 +137,10 @@ $(document).ready(function(){
 		let name = $("input[name=name]").val().trim();
 		let phoneNumber = $("input[name=phoneNumber]").val().trim();
 		let email = $("input[name=email]").val().trim();
-
-		// 아이디 중복체크
 		
 		// validation
 		if (!loginId) {
 			$("#idCheck").removeClass('d-none');
-			return false;
-		}
-		// 아이디 중복확인 다시 체크
-		if ($("#idCheckOk").hasClass('d-none')) {
-			alert("이미 존재하는 아이디입니다.");
 			return false;
 		}
 		if (!password) {
@@ -141,6 +164,27 @@ $(document).ready(function(){
 			return false;
 		}
 		
+		// 아이디 중복확인 다시 체크
+		if ($("#idCheckOk").hasClass('d-none')) {
+			alert("아이디를 확인해주세요.");
+			return false;
+		}
+		
+		// AJAX 통신
+		let url = $(this).attr('action');
+		console.log(url);
+		let params = $(this).serialize();
+		console.log(params);
+		
+		$.post(url, params)
+		.done(function(data) {
+			if (data.code == 1) {
+				alert("가입을 환영합니다! 로그인을 해주세요.");
+				location.href = "/user/sign_in_view";
+			} else {
+				alert(data.errorMessage);
+			}
+		});
 	});
 });
 </script>
