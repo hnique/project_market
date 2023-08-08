@@ -3,6 +3,8 @@ package com.market.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +34,7 @@ public class UserRestController {
 		Map<String, Object> result = new HashMap<>();
 		result.put("isDuplicatedId", false);
 		
-		// select
+		// select DB
 		UserEntity userEntity = userBO.getUserEntityByLoginId(loginId);
 		result.put("code", 1);
 		
@@ -60,10 +62,10 @@ public class UserRestController {
 			@RequestParam("phoneNumber") String phoneNumber,
 			@RequestParam("email") String email) {
 		
-		// 비밀번호 해싱
+		// password hashing
 		String hashedPassword = EncryptUtils.md5(password);
 		
-		// DB insert
+		// insert DB
 		Integer userId = userBO.addUser(loginId, hashedPassword, name, phoneNumber, email);
 		
 		Map<String, Object> result = new HashMap<>();
@@ -75,6 +77,35 @@ public class UserRestController {
 			result.put("errorMessage", "회원가입에 실패했습니다.");
 		}
 		
+		return result;
+	}
+	
+	@PostMapping("/sign_in")
+	public Map<String, Object> signIn(
+			@RequestParam("loginId") String loginId,
+			@RequestParam("password") String password,
+			HttpSession session) {
+		
+		// password hashing
+		String hashedPassword = EncryptUtils.md5(password);
+		
+		// select DB
+		UserEntity userEntity = userBO.getUserEntityByLoginIdAndPassword(loginId, hashedPassword);
+		
+		Map<String, Object> result = new HashMap<>();
+		if (userEntity != null) {
+			// 로그인 성공
+			session.setAttribute("userId", userEntity.getId());
+			session.setAttribute("userLoginId", userEntity.getLoginId());
+			session.setAttribute("userName", userEntity.getName());
+			
+			result.put("code", 1);
+			result.put("result", "성공");
+		} else {
+			// 로그인 실패
+			result.put("code", 500);
+			result.put("errorMessage", "존재하지 않는 사용자입니다.");
+		}
 		return result;
 	}
 }

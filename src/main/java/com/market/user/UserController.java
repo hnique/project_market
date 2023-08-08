@@ -1,5 +1,7 @@
 package com.market.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,17 @@ public class UserController {
 		return "user/signIn";
 	}
 	
+	/**
+	 * 로그아웃
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/sign_out")
-	public String signOut() {
+	public String signOut(HttpSession session) {
+		session.removeAttribute("userId");
+		session.removeAttribute("userLoginId");
+		session.removeAttribute("userName");
+		
 		return "redirect:/user/sign_in_view";
 	}
 }

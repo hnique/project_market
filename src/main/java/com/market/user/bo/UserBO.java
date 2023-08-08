@@ -15,6 +15,10 @@ public class UserBO {
 		return userRepository.findByLoginId(loginId);
 	}
 	
+	public UserEntity getUserEntityByLoginIdAndPassword(String loginId, String password) {
+		return userRepository.findByLoginIdAndPassword(loginId, password);
+	}
+	
 	public Integer addUser(String loginId, String password, String name, 
 			String phoneNumber, String email) {
 		UserEntity userEntity = userRepository.save(
