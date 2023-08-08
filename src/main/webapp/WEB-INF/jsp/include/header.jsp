@@ -37,7 +37,7 @@
 	<div class="icon col-3 d-flex justify-content-around align-items-center">
 		<!-- 회원정보 수정 -->
 		<div class="userIcon">
-			<a href="#"><img src="https://www.iconninja.com/files/66/635/783/user-icon.png" alt="프로필아이콘" width="35px"></a>
+			<a href="/user/update_info_view"><img src="https://www.iconninja.com/files/66/635/783/user-icon.png" alt="프로필아이콘" width="35px"></a>
 		</div>
 		
 		<!-- 찜 목록 -->

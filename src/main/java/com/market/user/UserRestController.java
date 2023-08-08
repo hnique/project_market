@@ -80,6 +80,13 @@ public class UserRestController {
 		return result;
 	}
 	
+	/**
+	 * 로그인 API
+	 * @param loginId
+	 * @param password
+	 * @param session
+	 * @return
+	 */
 	@PostMapping("/sign_in")
 	public Map<String, Object> signIn(
 			@RequestParam("loginId") String loginId,
@@ -106,6 +113,13 @@ public class UserRestController {
 			result.put("code", 500);
 			result.put("errorMessage", "존재하지 않는 사용자입니다.");
 		}
+		return result;
+	}
+	
+	@PostMapping("/update_info")
+	public Map<String, Object> updateInfo() {
+		Map<String, Object> result = new HashMap<>();
+		
 		return result;
 	}
 }
