@@ -35,3 +35,45 @@
 		</form> 
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+	// 수정완료
+	$("#updateInfoForm").on('submit', function(e) {
+		e.preventDefault();
+
+		let password = $('input[name=password]').val();
+		let confirmPassword = $('input[name=confirmPassword]').val();
+		let phoneNumber = $('input[name=phoneNumber]').val().trim();
+		let email = $('input[name=email]').val().trim();
+
+		// validation
+		if (password != confirmPassword) {
+			alert("비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+		if (!phoneNumber) {
+			alert("휴대폰 번호를 입력해주세요.");
+			return false;
+		}
+		if (!email) {
+			alert("이메일을 입력해주세요.");
+			return false;
+		}
+		
+		// AJAX 요청
+		let url = $(this).attr('action');
+		let params = $(this).serialize();
+		
+		$.post(url, params)
+		.done(function(data) {
+			if (data.code == 1) {
+				alert("회원정보가 수정되었습니다.")
+				location.reload(true);
+			} else {
+				alert("회원정보를 수정하는데 실패했습니다.");
+			}
+		});
+	});
+});
+</script>

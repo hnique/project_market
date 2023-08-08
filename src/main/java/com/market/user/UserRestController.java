@@ -116,9 +116,38 @@ public class UserRestController {
 		return result;
 	}
 	
+	/**
+	 * 회원정보 수정 API
+	 * @param password
+	 * @param phoneNumber
+	 * @param email
+	 * @param session
+	 * @return
+	 */
 	@PostMapping("/update_info")
-	public Map<String, Object> updateInfo() {
+	public Map<String, Object> updateInfo(
+			@RequestParam("password") String password,
+			@RequestParam("phoneNumber") String phoneNumber,
+			@RequestParam("email") String email,
+			HttpSession session) {
+		
+		int userId = (int)session.getAttribute("userId");
+		
+		// password hashing
+		String hashPW;
+		if (password != "") {
+			hashPW = EncryptUtils.md5(password);
+		} else {
+			hashPW = null;
+		}
+		String hashedPassword = hashPW;
+		
+		// update DB
+		userBO.updateUserInfo(userId, hashedPassword, phoneNumber, email);
+		
 		Map<String, Object> result = new HashMap<>();
+		result.put("code", 1);
+		result.put("result", "성공");
 		
 		return result;
 	}

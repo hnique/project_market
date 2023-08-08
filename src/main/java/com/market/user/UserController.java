@@ -50,6 +50,12 @@ public class UserController {
 		return "redirect:/user/sign_in_view";
 	}
 	
+	/**
+	 * 회원정보 수정
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/update_info_view")
 	public String updateInfoView(Model model, HttpSession session) {
 		// 로그인 여부 조회
