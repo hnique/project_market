@@ -56,8 +56,8 @@
 <nav class="menu">
 	<ul class="nav nav-fill pt-1">
 		<li id="categoryBtn"><a href="#" class="nav-link ml-3"><img src="/static/image/menu_icon.png" width="30px"></a></li>
-		<li class="nav-item"><a href="#" class="nav-link menu-text">판매등록</a></li>
-		<li class="nav-item"><a href="#" class="nav-link menu-text">구매등록</a></li>
+		<li class="nav-item"><a href="/post/write_sale_post_view" class="nav-link menu-text">판매등록</a></li>
+		<li class="nav-item"><a href="/post/write_purchase_post_view" class="nav-link menu-text">구매등록</a></li>
 		<li class="nav-item"><a href="#" class="nav-link menu-text">마이페이지</a></li>
 		<li class="nav-item"><a href="#" class="nav-link menu-text">채팅</a></li>
 	</ul>

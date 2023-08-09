@@ -16,8 +16,8 @@ public class FileManagerService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	// 업로드가 된 이미지가 저장될 경로(서버)
-//	public static final String FILE_UPLOAD_PATH ="C:\\Users\\PC\\Desktop\\hye\\code\\Project\\market\\workspace\\images/";
-	public static final String FILE_UPLOAD_PATH ="D:\\hyesun\\project\\market\\workspace\\images/";
+	public static final String FILE_UPLOAD_PATH ="C:\\Users\\PC\\Desktop\\hye\\code\\Project\\market\\workspace\\images/";
+//	public static final String FILE_UPLOAD_PATH ="D:\\hyesun\\project\\market\\workspace\\images/";
 	
 	
 	public String saveFile(String loginId, MultipartFile file) {
