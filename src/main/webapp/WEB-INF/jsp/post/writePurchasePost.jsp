@@ -23,6 +23,8 @@
 				<span>상세 설명</span>
 				<textarea id="summernote" name="content"></textarea>
 			</div>
+			
+			<button type="submit" class="writePostBtn">등록</button>
 		</form>
 	</div>
 </div>
