@@ -1,15 +1,24 @@
 package com.market.post;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.market.post.bo.PostBO;
+import com.market.post.entity.PostEntity;
+
 @Controller
 @RequestMapping("/post")
 public class PostController {
+	
+	@Autowired
+	private PostBO postBO;
 
 	/**
 	 * 판매등록 페이지
@@ -61,6 +70,9 @@ public class PostController {
 			return "alert";
 		}
 		
+		// 게시글 정보 model에 담기
+		List<PostEntity> postList = postBO.getPostList(userId);
+		model.addAttribute("post", postList);
 		model.addAttribute("view", "post/myPage");
 		return "template/layout";
 	}

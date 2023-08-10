@@ -325,9 +325,24 @@ header > .menu {
 	font-size:16px;
 	font-weight:bold;
 }
+.write-post-box textarea {
+	width:950px;
+	min-height:300px;
+}
 .write-post-box .selectPostStatus {
 	font-weight:bold;
 	margin-left:426px;
+}
+
+.file-upload i {
+	font-size:40px;
+	margin:10px 0 0 86px;
+	cursor:pointer;
+	color:rgb(64, 64, 64);
+}
+.file-upload #fileName {
+	margin:16px 0 0 6px;
+	color:rgb(64, 64, 64);
 }
 .write-post-box #postWriteBtn {
 	width:150px;
@@ -338,7 +353,7 @@ header > .menu {
 	color:#fff;
 	font-size:18px;
 	font-weight:bold;
-	margin:25px 20px 5px 890px;
+	margin:0 0 5px 890px;
 }
 /*---------- write post page ---------*/
 

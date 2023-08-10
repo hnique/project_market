@@ -20,17 +20,17 @@
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="allSaleHistory" checked>
 				<label for="allSaleHistory" class="tab-label">전체</label>
 				<div class="tab-content-box">
-					내용
+					판매전체
 				</div>
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="saleProgressHistory">
 				<label for="saleProgressHistory" class="tab-label">판매중</label>
 				<div class="tab-content-box">
-					내용2
+					판매중
 				</div>
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="closeSaleHistory">
 				<label for="closeSaleHistory" class="tab-label">판매완료</label>
 				<div class="tab-content-box">
-					내용3
+					판매완료
 				</div>
 			</div>
 		</div>
