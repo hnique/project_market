@@ -12,10 +12,12 @@
 			<input type="text" id="price" class="form-control col-3 mr-2" placeholder="가격을 입력하세요">원
 		</div>
 		<div class="input-box">
-			<span>카테고리</span> <select id="categoryId" class="form-control col-4">
+			<span>카테고리</span>
+			<select id="categoryId" class="form-control col-4">
 				<option value="카테고리 선택">카테고리 선택</option>
 				<option value=1>전자기기</option>
-			</select> <select id="status" class="selectPostStatus form-control col-2">
+			</select>
+			<select id="status" class="selectPostStatus form-control col-2">
 				<option value="판매중" selected>판매중</option>
 				<option value="판매완료">판매완료</option>
 			</select>
@@ -54,7 +56,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: data
 			, type: "POST"
-			, url: ""
+			, url: "/post/write"
 			, enctype: "multipart/form-data"
 			, contentType: false
 			, processData: false

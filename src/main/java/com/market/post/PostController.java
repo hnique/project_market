@@ -50,4 +50,18 @@ public class PostController {
 		model.addAttribute("view", "post/writePurchasePost");
 		return "template/layout";
 	}
+	
+	@GetMapping("/my_page_view")
+	public String myPageView(Model model, HttpSession session) {
+		// 로그인 여부 조회
+		Integer userId = (Integer)session.getAttribute("userId");
+		if (userId == null) {
+			model.addAttribute("msg", "로그인을 먼저 해주세요.");
+			model.addAttribute("url", "/user/sign_in_view");
+			return "alert";
+		}
+		
+		model.addAttribute("view", "post/myPage");
+		return "template/layout";
+	}
 }

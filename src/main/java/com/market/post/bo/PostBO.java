@@ -12,8 +12,6 @@ public class PostBO {
 	@Autowired
 	private PostRepository postRepository;
 	
-	@Autowired
-	
 	public PostEntity addPost(int userId, String subject, int price, int categoryId, 
 			String content, String postType, String status) {
 		return postRepository.save(

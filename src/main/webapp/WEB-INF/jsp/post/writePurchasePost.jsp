@@ -3,29 +3,32 @@
 <div class="write-post-wrap">
 	<h5>물건 구매하기</h5>
 	<div class="write-post-box">
-		<form id="postWriteForm" action="/post/write" method="post">
-			<div class="input-box">
-				<span>제목</span>
-				<input type="text" name="subject" class="form-control col-10" placeholder="제목을 입력해주세요">
-			</div>
-			<div class="input-box">
-				<span>구매 가격</span>
-				<input type="text" name="price" class="form-control col-3 mr-2" placeholder="가격을 입력해주세요">원
-			</div>
-			<div class="input-box">
-				<span>카테고리</span>
-				<select name="categoryId" class="form-control col-4">
-					<option selected>카테고리 선택</option>
-					<option>카테고리</option>
-				</select>
-			</div>
-			<div class="d-flex">
-				<span>상세 설명</span>
-				<textarea id="summernote" name="content"></textarea>
-			</div>
-			
-			<button type="submit" class="writePostBtn">등록</button>
-		</form>
+		<div class="input-box">
+			<span>제목</span> 
+			<input type="text" id="subject" class="form-control col-10" placeholder="제목을 입력하세요">
+		</div>
+		<div class="input-box">
+			<span>구매 가격</span>
+			<input type="text" id="price" class="form-control col-3 mr-2" placeholder="가격을 입력하세요">원
+		</div>
+		<div class="input-box">
+			<span>카테고리</span>
+			<select id="categoryId" class="form-control col-4">
+				<option value="카테고리 선택">카테고리 선택</option>
+				<option value=1>전자기기</option>
+			</select>
+			<select id="status" class="selectPostStatus form-control col-2">
+				<option value="구매중" selected>구매중</option>
+				<option value="구매완료">구매완료</option>
+			</select>
+		</div>
+		<div class="d-flex">
+			<span>상세 설명</span>
+			<textarea id="summernote"></textarea>
+		</div>
+
+		<input type="text" id="postType" value="구매글" class="d-none">
+		<button type="button" id="postWriteBtn">등록</button>
 	</div>
 </div>
 
