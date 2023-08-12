@@ -357,6 +357,149 @@ header > .menu {
 }
 /*---------- write post page ---------*/
 
+/*--------- post detail page ---------*/
+.post-detail-box {
+	width:80%;
+	margin-top:50px;
+	border:1px solid rgb(218, 218, 218);
+	border-radius:5px;
+	padding:20px 30px;
+	box-shadow:0 0 10px rgba(0, 0, 0, .1);
+}
+.post-comment-box {
+	width:75%;
+	margin-top:18px;
+}
+
+.post-detail-box #category {
+	font-size:14px;
+	color:rgb(127, 127, 127);
+}
+.post-detail-box #subject {
+	font-size:20px;
+	font-weight:bold;
+	color:rgb(51, 51, 51);
+}
+.post-detail-box #userLoginId {
+	font-size:15px;
+	color:rgb(64, 64, 64);
+}
+.post-detail-box #submitDate {
+	font-size:14px;
+	color:rgb(158, 158, 158);
+}
+.post-detail-box #price {
+	font-size:21px;
+	font-weight:bold;
+	color:rgb(51, 51, 51);
+}
+.post-detail-box #status {
+	font-size:17px;
+	font-weight:bold;
+	margin-left:10px;
+	color:dodgerblue;
+}
+.post-detail-box #content {
+	font-size:15px;
+}
+
+.post-detail-box #listBtn {
+	width:60px;
+	height:35px;
+	background-color:rgb(234, 234, 234);
+	border:none;
+	border-radius:5px;
+	color:rgb(64, 64, 64);
+	font-size:15px;
+}
+.post-detail-box #updateBtn {
+	width:60px;
+	height:35px;
+	background-color:rgb(234, 234, 234);
+	border:none;
+	border-radius:5px;
+	color:rgb(64, 64, 64);
+	font-size:15px;
+}
+.post-detail-box #deleteBtn {
+	width:100px;
+	height:35px;
+	background-color:rgb(93, 197, 183);
+	border:none;
+	border-radius:5px;
+	color:#fff;
+	font-size:15px;
+	font-weight:bold;
+	margin-left:20px;
+}
+
+.post-comment-box .bxs-chat, .bx-heart {
+	font-size:25px;
+	color:rgb(51, 51, 51);
+	margin-right:4px;
+	padding-top:2px;
+}
+.post-comment-box .bx-heart {
+	cursor:pointer;
+}
+.post-comment-box #comment {
+	font-size:17px;
+	font-weight:bold;
+	color:rgb(51, 51, 51);
+}
+.post-comment-box #like {
+	font-size:16px;
+	color:rgb(51, 51, 51);
+}
+.post-comment-box #chatBtn {
+	width:90px;
+	height:35px;
+	background-color:rgb(236, 236, 236);
+	border:none;
+	border-radius:5px;
+	color:rgb(93, 197, 183);
+	font-size:15px;
+	font-weight:bold;
+}
+.post-comment-box #commentUserId {
+	font-size:15px;
+	font-weight:bold;
+	color:rgb(94, 94, 94);
+	margin-right:2px;
+}
+.post-comment-box #commentContent {
+	font-size:14px;
+	color:rgb(94, 94, 94);
+}
+.post-comment-box #commentDate {
+	font-size:13px;
+	color:rgb(190, 190, 190);
+}
+.post-comment-box .bx-x {
+	font-size:23px;
+	margin-left:3px;
+	padding-top:1px;
+	cursor:pointer;
+}
+.post-comment-box .write-comment-box {
+	position:relative;
+}
+.post-comment-box input {
+	font-size:14px;
+	padding-right:45px;
+}
+.post-comment-box #commentSubmitBtn {
+	position:absolute;
+	top:6px;
+	right:8px;
+	font-size:15px;
+	font-weight:bold;
+	color:rgb(94, 94, 94);
+	cursor:pointer;
+}
+
+/*--------- post detail page ---------*/
+
 /*------------- my page --------------*/
 .my-page-wrap > h5 {
 	font-size: 21px;

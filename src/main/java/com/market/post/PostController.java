@@ -60,6 +60,19 @@ public class PostController {
 		return "template/layout";
 	}
 	
+	@GetMapping("/post_detail_view")
+	public String postDetailView(Model model) {
+		
+		model.addAttribute("view", "post/postDetail");
+		return "template/layout"; 
+	}
+	
+	/**
+	 * 마이페이지
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/my_page_view")
 	public String myPageView(Model model, HttpSession session) {
 		// 로그인 여부 조회
