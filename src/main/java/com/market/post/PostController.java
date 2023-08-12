@@ -72,7 +72,7 @@ public class PostController {
 		
 		// 게시글 정보 model에 담기
 		List<PostEntity> postList = postBO.getPostList(userId);
-		model.addAttribute("post", postList);
+		model.addAttribute("postList", postList);
 		model.addAttribute("view", "post/myPage");
 		return "template/layout";
 	}
