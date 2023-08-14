@@ -23,6 +23,10 @@ public class PostBO {
 		return postRepository.findAllByUserId(userId);
 	}
 	
+	public PostEntity getPostByPostIdAndUserId(int postId, int userId) {
+		return postRepository.findAllByIdAndUserId(postId, userId);
+	}
+	
 	public PostEntity addPost(int userId, String userLoginId, String postType, String subject, 
 			int price, int categoryId, String status, String content, MultipartFile file) {
 		String imagePath = null;

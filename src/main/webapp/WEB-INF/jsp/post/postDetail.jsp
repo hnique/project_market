@@ -6,25 +6,25 @@
 	<!-- 내용 -->
 	<div class="d-flex justify-content-center">
 		<div class="post-detail-box">
-			<span id="category">[카테고리]</span>
+			<span id="category">[${post.categoryId}]</span>
 			<div class="d-flex justify-content-between mt-1">
-				<span id="subject">제목입니다</span>
+				<span id="subject">${post.subject}</span>
 				<span id="userLoginId">userLoginId</span>
 			</div>
 			<div class="d-flex justify-content-between align-items-center">
 				<span id="submitDate">2023-08-12 18:23</span>
 				<div class="d-flex align-items-center">
-					<span id="price">150,000원</span>
-					<span id="status">[판매중]</span>
+					<span id="price">${post.price}원</span>
+					<span id="status">[${post.status}]</span>
 				</div>
 			</div>
 			<hr>
 			<c:if test="${not empty post.imagePath}">
-				<div>
-					<img src="${post.imagePath}" alt="업로드 된 이미지">
+				<div class="mb-2">
+					<img src="${post.imagePath}" alt="업로드 된 이미지" width="100%">
 				</div>
 			</c:if>
-			<span id="content">내용입니다</span>
+			<span id="content">${post.content}</span>
 			<div class="d-flex justify-content-between mt-5">
 				<a href="#"><button type="button" id="listBtn">목록</button></a>
 				<div class="d-flex align-items-center">
