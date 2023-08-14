@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.market.post.bo.PostBO;
+import com.market.post.domain.PostView;
 import com.market.post.entity.PostEntity;
 
 @Controller
@@ -64,15 +65,16 @@ public class PostController {
 	@GetMapping("/post_detail_view")
 	public String postDetailView(
 			@RequestParam("postId") int postId,
-			Model model,
-			HttpSession session) {
-		
-		int userId = (int)session.getAttribute("userId");
-		
+			Model model, HttpSession session) {
+		Integer userId = (Integer)session.getAttribute("userId");
+
 		// 게시글 조회
-		PostEntity postEntity = postBO.getPostByPostIdAndUserId(postId, userId);
-		
-		model.addAttribute("post", postEntity);
+		/*
+		 * PostEntity postEntity = postBO.getPostByPostIdAndUserId(postId, userId);
+		 * model.addAttribute("post", postEntity);
+		 */
+		PostView postView = postBO.generatePostView(postId, userId);
+		model.addAttribute("postView", postView);
 		model.addAttribute("view", "post/postDetail");
 		return "template/layout"; 
 	}

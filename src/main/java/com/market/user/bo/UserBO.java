@@ -27,6 +27,10 @@ public class UserBO {
 		return userRepository.findAllById(userId);
 	}
 	
+	public UserEntity getUserEntityById(int userId) {
+		return userRepository.findById(userId).orElse(null);
+	}
+	
 	public Integer addUser(String loginId, String password, String name, 
 			String phoneNumber, String email) {
 		UserEntity userEntity = userRepository.save(
