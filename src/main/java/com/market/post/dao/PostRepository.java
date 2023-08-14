@@ -10,5 +10,5 @@ import com.market.post.entity.PostEntity;
 @Repository
 public interface PostRepository extends JpaRepository<PostEntity, Integer>{
 
-	public List<PostEntity> findAllById(int userId);
+	public List<PostEntity> findAllByUserId(int userId);
 }

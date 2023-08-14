@@ -545,9 +545,28 @@ header > .menu {
 	min-height:100px;
 	padding:15px 16px;
 	background-color:#fff;
-	font-size:16px;
+	font-size:15px;
 	display:none;
 	border-radius:5px;
+}
+.tab-content-box .table td {
+	border-top:none;
+	border-bottom:1px solid #dee2e6;
+}
+.tab-content-box .post-subject {
+	width:760px;
+}
+.tab-content-box .post-subject a {
+	text-decoration:none;
+	color:rgb(51, 51, 51);
+}
+.tab-content-box .post-date {
+	width:110px;
+	color:rgb(127, 127, 127);
+}
+.tab-content-box .post-status {
+	width:90px;
+	color:rgb(93, 197, 183);
 }
 /*------------- my page --------------*/
 

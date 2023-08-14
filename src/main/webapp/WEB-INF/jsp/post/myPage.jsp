@@ -20,41 +20,66 @@
 			<div class="tab-nav-box">
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="allSaleHistory" checked>
 				<label for="allSaleHistory" class="tab-label">전체</label>
-				<!-- 반복문 질문할것: 게시글이 하나만 보여짐 -->
 				<div class="tab-content-box">
-				<table>
-					<thead>
-						<tr>
-							<th>제목</th>
-							<th>가격</th>
-							<th>날짜</th>
-							<th>상태</th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${postList}" var="post">
-						<tr>
-							<td>${post.subject}</td>
-							<td>${post.price}원</td>
-							<td>
-								<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt" />
-								<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd" />
-							</td>
-							<td>${post.status}</td>
-						</tr>
-					</c:forEach>
-					</tbody>
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.postType eq '판매글'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt"/>
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd"/>
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
 				</table>
 				</div>
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="saleProgressHistory">
 				<label for="saleProgressHistory" class="tab-label">판매중</label>
 				<div class="tab-content-box">
-					판매중
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.status eq '판매중'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt" />
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd" />
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				</table>
 				</div>
 				<input type="radio" class="tab-radio" name="sale-tab-btn" id="closeSaleHistory">
 				<label for="closeSaleHistory" class="tab-label">판매완료</label>
 				<div class="tab-content-box">
-					판매완료
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.status eq '판매완료'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt" />
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd" />
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				</table>
 				</div>
 			</div>
 		</div>
@@ -65,17 +90,65 @@
 				<input type="radio" class="tab-radio" name="buy-tab-btn" id="allBuyHistory" checked>
 				<label for="allBuyHistory" class="tab-label">전체</label>
 				<div class="tab-content-box">
-					구매전체
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.postType eq '구매글'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt"/>
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd"/>
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				</table>
 				</div>
 				<input type="radio" class="tab-radio" name="buy-tab-btn" id="buyProgressHistory">
 				<label for="buyProgressHistory" class="tab-label">구매중</label>
 				<div class="tab-content-box">
-					구매중
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.status eq '구매중'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt" />
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd" />
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				</table>
 				</div>
 				<input type="radio" class="tab-radio" name="buy-tab-btn" id="closeBuyHistory">
 				<label for="closeBuyHistory" class="tab-label">구매완료</label>
 				<div class="tab-content-box">
-					구매완료
+				<table class="table">
+				<c:forEach items="${postList}" var="post">
+				<c:choose>
+					<c:when test="${post.status eq '구매완료'}">
+					<tr>
+						<td class="post-subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+						<td>${post.price}원</td>
+						<td class="post-date">
+							<fmt:parseDate value="${post.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt" />
+							<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd" />
+						</td>
+						<td class="post-status">${post.status}</td>
+					</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+				</table>
 				</div>
 			</div>
 		</div>

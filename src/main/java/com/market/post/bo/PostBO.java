@@ -20,7 +20,7 @@ public class PostBO {
 	private FileManagerService fileManager;
 	
 	public List<PostEntity> getPostList(int userId) {
-		return postRepository.findAllById(userId);
+		return postRepository.findAllByUserId(userId);
 	}
 	
 	public PostEntity addPost(int userId, String userLoginId, String postType, String subject, 
