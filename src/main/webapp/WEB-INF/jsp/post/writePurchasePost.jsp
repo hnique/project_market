@@ -37,39 +37,15 @@
 			<textarea id="content" class="form-control"></textarea>
 		</div>
 
-		<div class="file-upload d-flex">
-			<input type="file" id="file" accept=".jpg, .jpeg, .png, .gif" class="d-none">
-			<i class='bx bx-image' id="fileUploadBtn"></i>
-			<div id="fileName"></div>
+		<div class="d-flex justify-content-between mt-3">
+			<input type="file" id="file" class="filebtn" accept=".jpg, .jpeg, .png, .gif">
+			<button type="button" id="postWriteBtn">등록</button>
 		</div>
-		<button type="button" id="postWriteBtn">등록</button>
 	</div>
 </div>
 
 <script>
 $(document).ready(function() {
-	// 파일 이미지 클릭
-	$("#fileUploadBtn").on('click', function(e) {
-		e.preventDefault();
-		$("#file").click();
-	});
-	
-	// 이미지 선택
-	$("#file").on('change', function(e) {
-		let fileName = e.target.files[0].name;
-		
-		// 확장자 유효성 확인
-		let ext = fileName.split(".").pop().toLowerCase();
-		
-		if (ext != "jpg" && ext != "png" && ext != "gif" && ext != "jpeg") {
-			alert("이미지 파일만 업로드 할 수 있습니다.");
-			$('#file').val(""); 
-			$('#fileName').text('');
-			return;
-		}
-		$("#fileName").text(fileName);
-	});
-	
 	// 게시글 등록
 	$("#postWriteBtn").on('click', function() {
 		let postType = $("#postType").val();

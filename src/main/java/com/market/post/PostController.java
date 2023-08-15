@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.market.category.bo.CategoryBO;
 import com.market.post.bo.PostBO;
 import com.market.post.domain.PostView;
 import com.market.post.entity.PostEntity;
@@ -21,6 +22,9 @@ public class PostController {
 	
 	@Autowired
 	private PostBO postBO;
+	
+	@Autowired
+	private CategoryBO categoryBO;
 
 	/**
 	 * 판매등록 페이지
@@ -62,21 +66,50 @@ public class PostController {
 		return "template/layout";
 	}
 	
+	/**
+	 * 게시글 상세 페이지
+	 * @param postId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/post_detail_view")
 	public String postDetailView(
 			@RequestParam("postId") int postId,
 			Model model, HttpSession session) {
 		Integer userId = (Integer)session.getAttribute("userId");
-
-		// 게시글 조회
-		/*
-		 * PostEntity postEntity = postBO.getPostByPostIdAndUserId(postId, userId);
-		 * model.addAttribute("post", postEntity);
-		 */
+		
 		PostView postView = postBO.generatePostView(postId, userId);
 		model.addAttribute("postView", postView);
 		model.addAttribute("view", "post/postDetail");
 		return "template/layout"; 
+	}
+	
+	/**
+	 * 게시글 수정 페이지
+	 * @param postId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@GetMapping("/post_update_view")
+	public String postUpdateView(
+			@RequestParam("postId") int postId,
+			Model model, HttpSession session) {
+		// 로그인 여부 조회
+		Integer userId = (Integer)session.getAttribute("userId");
+		if (userId == null) {
+			model.addAttribute("msg", "로그인을 먼저 해주세요.");
+			model.addAttribute("url", "/user/sign_in_view");
+			return "alert";
+		}
+		// 해당 게시글 정보 담기
+		PostEntity post = postBO.getPostById(postId);
+		String category = categoryBO.getCategoryNameByCategoryId(post.getCategoryId());
+		model.addAttribute("post", post);
+		model.addAttribute("category", category);
+		model.addAttribute("view", "/post/postUpdate");
+		return "template/layout";
 	}
 	
 	/**
