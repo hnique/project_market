@@ -10,5 +10,4 @@ public class Like {
 	private int userId;
 	private int postId;
 	private ZonedDateTime createdAt;
-	private ZonedDateTime updatedAt;
 }

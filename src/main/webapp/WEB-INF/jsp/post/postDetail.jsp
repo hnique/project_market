@@ -30,10 +30,12 @@
 			<span id="content">${postView.post.content}</span>
 			<div class="d-flex justify-content-between mt-5">
 				<a href="#"><button type="button" id="listBtn">목록</button></a>
-				<div class="d-flex align-items-center">
-					<a href="#"><button type="button" id="updateBtn">수정</button></a>
-					<button type="button" id="deleteBtn">삭제</button>
-				</div>
+				<c:if test="${userId eq postView.post.userId}">
+					<div class="d-flex align-items-center">
+						<a href="/post/post_update_view?postId=${postView.post.id}"><button type="button" id="updateBtn">수정</button></a>
+						<button type="button" id="deleteBtn" data-post-id="${postView.post.id}">삭제</button>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -44,11 +46,19 @@
 			<!-- 메뉴 -->
 			<div class="d-flex justify-content-between mb-3">
 				<div class="d-flex">
+					<!-- 댓글 -->
 					<div class="d-flex align-items-center">
 						<i class='bx bxs-chat'></i><span id="comment">댓글(1)</span>
 					</div>
+					<!-- 찜하기 -->
 					<div class="d-flex align-items-center ml-4">
-						<i class='bx bx-heart'></i><span id="like">찜하기</span>
+						<c:if test="${postView.filledLike eq false}">
+							<i class='like-btn bx bx-heart' data-post-id="${postView.post.id}"></i><span id="like">찜하기</span>
+						</c:if>
+						
+						<c:if test="${postView.filledLike}">
+							<i class='like-btn bx bxs-heart' data-post-id="${postView.post.id}"></i><span id="like">찜하기</span>
+						</c:if>
 					</div>
 				</div>
 				<button type="button" id="chatBtn">채팅하기</button>
@@ -65,7 +75,9 @@
 						<fmt:parseDate value="${commentView.comment.createdAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedCreatedAt"/>
 						<fmt:formatDate value="${parsedCreatedAt}" pattern="yyyy-MM-dd"/>
 					</span>
-					<i class='bx bx-x'></i>
+					<c:if test="${userId == commentView.comment.userId}">
+						<i class='commentDelBtn bx bx-x' data-comment-id="${commentView.comment.id}"></i>
+					</c:if>
 				</div>
 			</div>
 			</c:forEach>
@@ -77,11 +89,9 @@
 		</div>
 	</div>
 </div>
-<!-- TODO: 게시글삭제, 댓글삭제, 댓글개수표시, 찜하기 구현 -->
+<!-- TODO: 목록페이지, 댓글개수표시, 채팅하기 구현 -->
 <script>
 $(document).ready(function() {
-	// 게시글 삭제
-	
 	// 댓글 작성
 	$("#commentSubmitBtn").on('click', function() {
 		let postId = $(this).data('post-id');
@@ -94,12 +104,80 @@ $(document).ready(function() {
 			, success:function(data) {
 				if (data.code == 1) {
 					location.reload(true);
-				} else if (data.code == 300) {
+				} else {
 					alert(data.errorMessage);
 				}
 			}
 			, error:function(request, status, error) {
 				alert("댓글을 등록하는데 실패했습니다.")
+			}
+		});
+	});
+	
+	// 댓글 삭제
+	$(".commentDelBtn").on('click', function(e) {
+		e.preventDefault();
+		
+		let commentId = $(this).data('comment-id');
+		
+		$.ajax({
+			type:"delete"
+			, url:"/comment/delete"
+			, data:{"commentId":commentId}
+			, success:function(data) {
+				if (data.code == 1) {
+					location.reload(true);
+				} else {
+					alert(data.errorMessage);
+				}
+			}
+			, error:function(request, status, error) {
+				alert("댓글을 삭제하는데 실패했습니다.")
+			}
+		});
+	});
+	
+	// 찜하기, 찜해제 토글
+	$(".like-btn").on('click', function(e) {
+		e.preventDefault();
+		
+		let postId = $(this).data('post-id');
+		
+		$.ajax({
+			url:"/like/" + postId
+			, success:function(data) {
+				if (data.code == 1) {
+					location.reload();
+				} else {
+					alert(data.errorMessage);
+				}
+			}
+			, error:function(request, status, error) {
+				alert("좋아요를 하는데 실패했습니다.");
+			}
+		});
+	});
+	
+	// 게시글 삭제
+	$("#deleteBtn").on('click', function(e) {
+		e.preventDefault();
+		
+		let postId = $(this).data('post-id');
+		
+		$.ajax({
+			type:"delete"
+			, url:"/post/delete"
+			, data:{"postId":postId}
+			, success:function(data) {
+				if (data.code == 1) {
+					alert("글이 삭제되었습니다.");
+					location.href = "/market/main_view";
+				} else {
+					alert(data.errorMessage);
+				}
+			}
+			, error:function(request, status, error) {
+				alert("글을 삭제하는데 실패했습니다. 관리자에게 문의해주세요.");
 			}
 		});
 	});
