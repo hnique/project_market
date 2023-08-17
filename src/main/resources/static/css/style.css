@@ -587,5 +587,68 @@ header > .menu {
 }
 /*------------- my page --------------*/
 
+/*---------- wish list page ----------*/
+.wish-list-box {
+	width:80%;
+	margin-top:50px;
+}
+.wish-list-box h5 {
+	font-size:20px;
+	font-weight:bold;
+	margin:0 0 15px 10px;
+}
+.wish-list-box table th {
+	font-size:15px;
+	background-color:rgb(243, 243, 243);
+	padding:10px;
+	vertical-align:middle;
+}
+.wish-list-box th input {
+	margin:0 10px 0 5px;
+}
+.wish-list-box .subject {
+	width:570px;
+	text-align:center;
+}
+.wish-list-box table .price {
+	width:110px;
+	text-align:center;
+}
+.wish-list-box table .delete {
+	width:70px;
+	text-align:end;
+}
+.wish-list-box #deleteBtn {
+	width:55px;
+	height:27px;
+	background-color:#fff;
+	border-radius:5px;
+	color:rgb(94, 94, 94);
+	border:1px solid rgb(200, 200, 200);
+}
+.wish-list-box table td {
+	font-size:15px;
+}
+.wish-list-box td input {
+	margin-left:3px;
+}
+.wish-list-box .delete-btn {
+	font-size:28px;
+	margin-right:11px;
+	cursor:pointer;
+}
+.wish-list-box #mainBtn {
+	width:90px;
+	height:30px;
+	background-color:rgb(93, 197, 183);
+	border:none;
+	border-radius:5px;
+	color:#fff;
+	font-size:15px;
+	font-weight:bold;
+	margin-top:10px;
+}
+/*---------- wish list page ----------*/
+
 .contents {min-height: 500px;}
 footer {height: 100px;}

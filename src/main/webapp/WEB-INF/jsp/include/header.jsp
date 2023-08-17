@@ -42,7 +42,7 @@
 		
 		<!-- 찜 목록 -->
 		<div class="wishIcon">
-			<a href="#"><img src="https://www.iconninja.com/files/937/385/150/hearts-icon.png" alt="찜목록아이콘" width="35px"></a>
+			<a href="/like/wish_list_view"><img src="https://www.iconninja.com/files/937/385/150/hearts-icon.png" alt="찜목록아이콘" width="35px"></a>
 		</div>
 		
 		<!-- 알림 목록 -->
