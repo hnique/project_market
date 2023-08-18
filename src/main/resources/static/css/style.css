@@ -610,6 +610,10 @@ header > .menu {
 	width:570px;
 	text-align:center;
 }
+.wish-list-box .subject a {
+	text-decoration:none;
+	color:rgb(51, 51, 51);
+}
 .wish-list-box table .price {
 	width:110px;
 	text-align:center;
@@ -649,6 +653,62 @@ header > .menu {
 	margin-top:10px;
 }
 /*---------- wish list page ----------*/
+
+/*---------- post list page ----------*/
+.post-list-box {
+	width:80%;
+	margin-top:20px;
+}
+.post-list-box > span {
+	font-size:14px;
+	color:#5A5A5A;
+	margin-left:2px;
+}
+.post-list-box table th {
+	font-size:15px;
+	color:rgb(94, 94, 94);
+	background-color:rgb(243, 243, 243);
+	padding:7px;
+	border:none;
+}
+.post-list-box table td {
+	font-size:15px;
+	border-top:none;
+	border-bottom:1px solid #dee2e6;
+	padding-left:10px;
+}
+
+.post-list-box table .category {
+	width:20%;
+	padding-left:10px;
+}
+.post-list-box table .subject {
+	width:55%;
+	text-align:center;
+}
+.post-list-box .price {
+	width:13%;
+	text-align:center;
+}
+.post-list-box .date-th, .date-td {
+	width:11%;
+	text-align:center;
+}
+.post-list-box .date-td {
+	color:rgb(127, 127, 127);
+}
+.post-list-box #mainBtn {
+	width:90px;
+	height:30px;
+	background-color:rgb(93, 197, 183);
+	border:none;
+	border-radius:5px;
+	color:#fff;
+	font-size:15px;
+	font-weight:bold;
+	margin-top:10px;
+}
+/*---------- post list page ----------*/
 
 .contents {min-height: 500px;}
 footer {height: 100px;}

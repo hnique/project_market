@@ -134,4 +134,11 @@ public class PostController {
 		model.addAttribute("view", "post/myPage");
 		return "template/layout";
 	}
+	
+	@GetMapping("/post_list_view")
+	public String postListView(Model model) {
+		
+		model.addAttribute("view", "post/postList");
+		return "template/layout";
+	}
 }

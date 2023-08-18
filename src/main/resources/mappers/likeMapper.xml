@@ -15,6 +15,15 @@
 		</if>
 	</select>
 	
+	<select id="selectPostIdByUserId" parameterType="int" resultType="Integer">
+		SELECT
+			`postId`
+		FROM
+			`like`
+		WHERE
+			`userId` = #{userId}
+	</select>
+	
 	<insert id="insertLike" parameterType="map">
 		INSERT INTO `like`
 		(

@@ -14,18 +14,28 @@
 			</tr>
 			</thead>
 			<tbody>
+			<c:forEach items="${postList}" var="post">
 			<tr>
 				<td><input type="checkbox" name="rowCheck"></td>
-				<td class="subject">제목입니다</td>
-				<td class="price">150000원</td>
+				<td class="subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
+				<td class="price">${post.price}원</td>
 				<td class="delete"><i class='delete-btn bx bx-x'></i></td>
 			</tr>
+			</c:forEach>
 			</tbody>
 		</table>
 		<!-- 찜한 상품이 0개일 시 노출 -->
-		<div class="text-center">
-			<div>찜한 상품이 없습니다.</div>
-			<a href="/market/main_view"><button type="button" id="mainBtn">메인 이동</button></a>
-		</div>
+		<c:if test="${empty postList}">
+			<div class="text-center">
+				<div>찜한 상품이 없습니다.</div>
+				<a href="/market/main_view"><button type="button" id="mainBtn">메인 이동</button></a>
+			</div>
+		</c:if>
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+	// 삭제 구현 (전체, 선택삭제)
+});
+</script>

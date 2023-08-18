@@ -1,5 +1,8 @@
 package com.market.like.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +31,13 @@ public class LikeBO {
 		}
 		// 로그인
 		return likeMapper.selectLikeCountByPostIdOrUserId(postId, userId) > 0;
+	}
+	
+	// like 테이블의 postId list로 받아오기
+	public List<Integer> getPostIdByUserId(int userId) {
+		List<Integer> list = new ArrayList<>();
+		list.addAll(likeMapper.selectPostIdByUserId(userId));
+		return list;
 	}
 	
 	public void deleteLikeByPostId(int postId) {
