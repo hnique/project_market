@@ -97,6 +97,12 @@ $(document).ready(function() {
 		let postId = $(this).data('post-id');
 		let comment = $(this).prev().val().trim();
 		
+		// validation
+		if (!comment) {
+			alert("댓글을 작성해주세요.");
+			return;
+		}
+		
 		$.ajax({
 			type:"post"
 			, url:"/comment/create"

@@ -659,10 +659,14 @@ header > .menu {
 	width:80%;
 	margin-top:20px;
 }
-.post-list-box > span {
+.post-list-box span {
 	font-size:14px;
 	color:#5A5A5A;
 	margin-left:2px;
+}
+.post-list-box .key-word {
+	font-weight:bold;
+	color:#212121;
 }
 .post-list-box table th {
 	font-size:15px;

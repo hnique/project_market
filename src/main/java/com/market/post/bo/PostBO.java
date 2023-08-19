@@ -1,11 +1,13 @@
 package com.market.post.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.market.category.bo.CategoryBO;
@@ -14,6 +16,7 @@ import com.market.comment.domain.CommentView;
 import com.market.common.FileManagerService;
 import com.market.like.bo.LikeBO;
 import com.market.post.dao.PostRepository;
+import com.market.post.domain.PostList;
 import com.market.post.domain.PostView;
 import com.market.post.entity.PostEntity;
 import com.market.user.bo.UserBO;
@@ -153,5 +156,22 @@ public class PostBO {
 		
 		// 찜하기 삭제
 		likeBO.deleteLikeByPostId(postId);
+	}
+	
+	@Transactional
+	public List<PostList> search(String keyword) {
+		List<PostList> searchList = new ArrayList<>();
+		List<PostEntity> postList = postRepository.findBySubjectContaining(keyword);
+		
+		for (PostEntity post : postList) {
+			PostList list = new PostList();
+			String category = categoryBO.getCategoryNameByCategoryId(post.getCategoryId());
+			
+			list.setPost(post);
+			list.setCategory(category);
+			
+			searchList.add(list);
+		}
+		return searchList;
 	}
 }

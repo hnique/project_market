@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.market.category.bo.CategoryBO;
 import com.market.post.bo.PostBO;
+import com.market.post.domain.PostList;
 import com.market.post.domain.PostView;
 import com.market.post.entity.PostEntity;
 
@@ -135,9 +136,20 @@ public class PostController {
 		return "template/layout";
 	}
 	
+	/**
+	 * 검색결과 페이지
+	 * @param keyword
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/post_list_view")
-	public String postListView(Model model) {
+	public String postListView(
+			@RequestParam("keyword") String keyword,
+			Model model) {
 		
+		List<PostList> searchList = postBO.search(keyword);
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("searchList", searchList);
 		model.addAttribute("view", "post/postList");
 		return "template/layout";
 	}

@@ -28,10 +28,11 @@
 	</div>
 	
 	<!-- search bar -->
-	<div class="search col-6 d-flex justify-content-center align-items-center">
-		<input type="text" class="form-control" placeholder="어떤 상품을 찾으시나요?">
-		<img id="searchBtn" src="https://www.iconninja.com/files/567/43/720/search-icon.png" alt="검색아이콘">
-	</div>
+	<form action="/post/post_list_view" method="GET" class="search col-6 d-flex justify-content-center align-items-center">
+		<input type="text" name="keyword" class="form-control" placeholder="어떤 상품을 찾으시나요?">
+		<img id="searchIcon" src="https://www.iconninja.com/files/567/43/720/search-icon.png" alt="검색아이콘">
+		<button id="searchBtn" class="d-none"></button>
+	</form>
 	
 	<!-- icon -->
 	<div class="icon col-3 d-flex justify-content-around align-items-center">
@@ -65,8 +66,16 @@
 
 <script>
 $(document).ready(function() {
-	$("#searchBtn").on('click', function() {
-		alert("검색클릭");
+	// 검색아이콘 클릭
+	$("#searchIcon").on('click', function() {
+		let keyword = $('input[name=keyword]').val().trim();
+		
+		// validation
+		if (!keyword) {
+			alert("검색어를 입력해주세요.");
+			return;
+		}
+		$("#searchBtn").click();
 	});
 });
 </script>
