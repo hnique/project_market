@@ -174,4 +174,21 @@ public class PostBO {
 		}
 		return searchList;
 	}
+	
+	@Transactional
+	public List<PostList> getPostListByCategoryId(int categoryId) {
+		List<PostList> categoryList = new ArrayList<>();
+		List<PostEntity> postList = postRepository.findAllByCategoryId(categoryId);
+		
+		for (PostEntity post : postList) {
+			PostList list = new PostList();
+			String category = categoryBO.getCategoryNameByCategoryId(post.getCategoryId());
+			
+			list.setPost(post);
+			list.setCategory(category);
+			
+			categoryList.add(list);
+		}
+		return categoryList;
+	}
 }

@@ -29,7 +29,7 @@
 			</c:if>
 			<span id="content">${postView.post.content}</span>
 			<div class="d-flex justify-content-between mt-5">
-				<a href="#"><button type="button" id="listBtn">목록</button></a>
+				<a href="/category/post_list_view?categoryId=${postView.post.categoryId}"><button type="button" id="listBtn">목록</button></a>
 				<c:if test="${userId eq postView.post.userId}">
 					<div class="d-flex align-items-center">
 						<a href="/post/post_update_view?postId=${postView.post.id}"><button type="button" id="updateBtn">수정</button></a>
@@ -89,7 +89,7 @@
 		</div>
 	</div>
 </div>
-<!-- TODO: 목록페이지, 댓글개수표시, 채팅하기 구현 -->
+<!-- TODO: 댓글개수표시, 채팅하기 구현 -->
 <script>
 $(document).ready(function() {
 	// 댓글 작성

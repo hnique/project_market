@@ -58,16 +58,16 @@
 	<ul class="d-flex align-items-center pt-2">
 		<li class="menu-text"><i class='bx bx-menu'></i>
  			<ul class="category">
-				<li><a href="#">패션·뷰티</a></li>
-				<li><a href="#">식품·건강</a></li>
-				<li><a href="#">생활·주방</a></li>
-				<li><a href="#">가구·인테리어</a></li>
-				<li><a href="#">디지털·가전</a></li>
-				<li><a href="#">게임·컴퓨터</a></li>
-				<li><a href="#">스포츠·자동차</a></li>
-				<li><a href="#">도서·여행</a></li>
-				<li><a href="#">반려동물·취미</a></li>
-				<li><a href="#">기타</a></li>
+				<li><a href="/category/post_list_view?categoryId=1">패션·뷰티</a></li>
+				<li><a href="/category/post_list_view?categoryId=2">식품·건강</a></li>
+				<li><a href="/category/post_list_view?categoryId=3">생활·주방</a></li>
+				<li><a href="/category/post_list_view?categoryId=4">가구·인테리어</a></li>
+				<li><a href="/category/post_list_view?categoryId=5">디지털·가전</a></li>
+				<li><a href="/category/post_list_view?categoryId=6">게임·컴퓨터</a></li>
+				<li><a href="/category/post_list_view?categoryId=7">스포츠·자동차</a></li>
+				<li><a href="/category/post_list_view?categoryId=8">도서·여행</a></li>
+				<li><a href="/category/post_list_view?categoryId=9">반려동물·취미</a></li>
+				<li><a href="/category/post_list_view?categoryId=10">기타</a></li>
 			</ul>
 		</li>
 		<li class="nav-menu"><a href="/post/write_sale_post_view" class="menu-text">판매등록</a></li>
