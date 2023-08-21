@@ -72,14 +72,71 @@ header > .middle-menu {
 }
 
 header > .menu {
-	height: 50px;
-	background-color: rgb(93, 197, 183);
-	border-radius: 5px;
+	height:50px;
+	background-color:rgb(93, 197, 183);
+	border-radius:5px;
 }
-.menu .menu-text {
-	color: #fff;
-	font-weight: bold;
-	font-size: 17px;
+header .menu > ul {
+	padding:20px 0 20px 20px;
+}
+header .menu ul li {
+	display:inline-block;
+	list-style:none;
+}
+header .menu ul .bx-menu {
+	color:#fff;
+	font-size:35px;
+	padding-right:10px;
+	cursor:pointer;
+}
+header .menu ul .bx-menu:hover {
+	color:darkcyan;
+}
+header .menu ul .nav-menu {
+	margin:0 90px 7px 100px;
+}
+header .menu ul li .menu-text {
+	text-decoration:none;
+	color:#fff;
+	display:inline-block;
+	transition:all ease 0.3s;
+	font-size:18px;
+	font-weight:bold;
+	margin:0;
+}
+header .menu ul li a:hover {
+	color:darkcyan;
+}
+header .menu .category {
+	position:absolute;
+	width:145px;
+	background-color:#fff;
+	box-shadow:0 20px 45px #00000020;
+	margin-top:-50px;
+	opacity:0;
+	z-index:-999;
+	transition:all ease 0.5s;
+	padding:0;
+}
+header .menu ul li:hover .category {
+	z-index:99;
+	opacity:1;
+	margin-top:0;
+}
+header .menu ul .category li {
+	margin:0;
+	width:100%;
+}
+header .menu ul .category li a {
+	text-decoration:none;
+	padding:10px 0 10px 20px;
+	display:inline-block;
+	width:100%;
+	color:#5A5A5A;
+	font-size:15px;
+}
+header .menu ul .category li a:hover {
+	background-color:rgb(246, 246, 246);
 }
 /*-------------- header --------------*/
 

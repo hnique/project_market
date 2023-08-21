@@ -15,4 +15,9 @@ public class MarketController {
 		model.addAttribute("view", "market/main");
 		return "template/layout";
 	}
+	
+	@GetMapping("/dropdown_view")
+	public String dropDownView() {
+		return "include/dropdown";
+	}
 }

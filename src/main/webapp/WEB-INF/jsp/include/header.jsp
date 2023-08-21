@@ -55,12 +55,25 @@
 
 <!-- nav -->
 <nav class="menu">
-	<ul class="nav nav-fill pt-1">
-		<li id="categoryBtn"><a href="#" class="nav-link ml-3"><img src="/static/image/menu_icon.png" width="30px"></a></li>
-		<li class="nav-item"><a href="/post/write_sale_post_view" class="nav-link menu-text">판매등록</a></li>
-		<li class="nav-item"><a href="/post/write_purchase_post_view" class="nav-link menu-text">구매등록</a></li>
-		<li class="nav-item"><a href="/post/my_page_view" class="nav-link menu-text">마이페이지</a></li>
-		<li class="nav-item"><a href="#" class="nav-link menu-text">채팅</a></li>
+	<ul class="d-flex align-items-center pt-2">
+		<li class="menu-text"><i class='bx bx-menu'></i>
+ 			<ul class="category">
+				<li><a href="#">패션·뷰티</a></li>
+				<li><a href="#">식품·건강</a></li>
+				<li><a href="#">생활·주방</a></li>
+				<li><a href="#">가구·인테리어</a></li>
+				<li><a href="#">디지털·가전</a></li>
+				<li><a href="#">게임·컴퓨터</a></li>
+				<li><a href="#">스포츠·자동차</a></li>
+				<li><a href="#">도서·여행</a></li>
+				<li><a href="#">반려동물·취미</a></li>
+				<li><a href="#">기타</a></li>
+			</ul>
+		</li>
+		<li class="nav-menu"><a href="/post/write_sale_post_view" class="menu-text">판매등록</a></li>
+		<li class="nav-menu"><a href="/post/write_purchase_post_view" class="menu-text">구매등록</a></li>
+		<li class="nav-menu"><a href="/post/my_page_view" class="menu-text">마이페이지</a></li>
+		<li class="nav-menu"><a href="#" class="menu-text">채팅</a></li>
 	</ul>
 </nav>
 
