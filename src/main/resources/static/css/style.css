@@ -140,6 +140,40 @@ header .menu ul .category li a:hover {
 }
 /*-------------- header --------------*/
 
+/*--------------- main ---------------*/
+.img-box {
+	background-color:rgb(218, 218, 218);
+	width:100%;
+	height:320px;
+	margin-top:15px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.img-box > span {
+	color:#fff;
+	font-size:50px;
+	font-weight:bold;
+}
+.goods-box {
+	margin-top:15px;
+}
+.goods-box h5 {
+	margin:10px 15px;
+	font-size:19px;
+}
+.hot-goods {
+	width:49%;
+	height:275px;
+	background-color:rgb(244, 244, 244);
+}
+.new-goods {
+	width:49%;
+	height:275px;
+	background-color:rgb(244, 244, 244);
+}
+/*--------------- main ---------------*/
+
 /*----------- sing up page -----------*/
 .sign-up-title > h5 {
 	margin-top :30px;
