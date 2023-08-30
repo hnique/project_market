@@ -17,7 +17,7 @@
 		<div class="input-box">
 			<span>카테고리</span>
 			<select id="categoryId" class="form-control col-4">
-				<option value="카테고리 선택">카테고리 선택</option>
+				<option value="${post.categoryId}">${category}</option>
 				<option value=1>패션·뷰티</option>
 				<option value=2>식품·건강</option>
 				<option value=3>생활·주방</option>
