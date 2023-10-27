@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="d-flex justify-content-center">
 	<div class="wish-list-box">
-		<h5>userId님의 찜 목록(n개)</h5>
+		<h5>${userName}님의 찜 목록</h5>
 		<table class="table">
 			<thead>
 			<tr>

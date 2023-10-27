@@ -18,7 +18,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="sign-in-wrap">
 			<form id="loginForm" action="/user/sign_in" method="post">
-				<a href="/market/main_view"><h1>사이트명</h1></a>
+				<a href="/market/main_view"><h1>중고마켓</h1></a>
 				<div class="sign-in-box">
 					<input type="text" name="loginId" placeholder="Username">
 					<i class='bx bxs-user'></i>

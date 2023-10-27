@@ -24,7 +24,7 @@
 <div class="middle-menu d-flex">
 	<!-- logo -->
 	<div class="logo col-3 d-flex justify-content-center align-items-center">
-		<a href="/market/main_view"><h2 class="font-weight-bold">사이트명</h2></a>
+		<a href="/market/main_view"><h2 class="font-weight-bold">중고마켓</h2></a>
 	</div>
 	
 	<!-- search bar -->

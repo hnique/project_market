@@ -155,22 +155,18 @@ header .menu ul .category li a:hover {
 	font-size:50px;
 	font-weight:bold;
 }
-.goods-box {
+.goods-list {
 	margin-top:15px;
-}
-.goods-box h5 {
-	margin:10px 15px;
-	font-size:19px;
-}
-.hot-goods {
-	width:49%;
-	height:275px;
+	width:100%;
+	height:550px;
 	background-color:rgb(244, 244, 244);
+	gap:5px 10px;
+	padding-top:10px;
 }
-.new-goods {
-	width:49%;
-	height:275px;
-	background-color:rgb(244, 244, 244);
+.goods-box {
+	width:180px;
+	height:230px;
+	background-color:#fff;
 }
 /*--------------- main ---------------*/
 
