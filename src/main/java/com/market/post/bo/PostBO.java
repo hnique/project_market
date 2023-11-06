@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,6 +69,10 @@ public class PostBO {
 		postView.setFilledLike(filledLike);
 		
 		return postView;	
+	}
+	
+	public List<PostEntity> getPostByIdDesc() {
+		return postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
 	}
 	
 	public PostEntity getPostById(int postId) {
