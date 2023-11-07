@@ -16,10 +16,10 @@
 			<tbody>
 			<c:forEach items="${postList}" var="post">
 			<tr>
-				<td><input type="checkbox" name="rowCheck"></td>
+				<td><input type="checkbox" name="rowCheck" value="${post.id}"></td>
 				<td class="subject"><a href="/post/post_detail_view?postId=${post.id}">${post.subject}</a></td>
 				<td class="price">${post.price}원</td>
-				<td class="delete"><i class='delete-btn bx bx-x'></i></td>
+				<td></td>
 			</tr>
 			</c:forEach>
 			</tbody>
@@ -36,6 +36,42 @@
 
 <script>
 $(document).ready(function() {
-	// 삭제 구현 (전체, 선택삭제)
+	// 전체선택 클릭
+	$("#allCheck").on('click', function() {
+		var chk = $(this).is(':checked');
+		console.log(chk);
+		
+		$("input[type=checkbox]").prop("checked", chk);
+	});
+	
+	// 찜 목록 삭제
+	$("#deleteBtn").on('click', function() {
+		var chk = $("input[type=checkbox]:checked");
+		
+		if (chk.length < 1) {
+			alert("삭제할 글을 선택해주세요.");
+			return false;
+		}
+		
+		var idList = new Array();
+		$.each(chk, function(k, v) {
+			idList.push($(this).val());
+		});
+		console.log(idList);
+		
+		$.ajax({
+			type:"delete",
+			url:"/like/delete",
+			data:{"idList":idList},
+			success:function(data) {
+				if (data.code == 1) {
+					alert("선택한 게시글을 삭제했습니다.");
+					location.reload();
+				} else {
+					alert(data.errorMessage);
+				}
+			}
+		});
+	});
 });
 </script>

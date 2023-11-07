@@ -48,7 +48,7 @@
 				<div class="d-flex">
 					<!-- 댓글 -->
 					<div class="d-flex align-items-center">
-						<i class='bx bxs-chat'></i><span id="comment">댓글(1)</span>
+						<i class='bx bxs-chat'></i><span id="comment">댓글</span>
 					</div>
 					<!-- 찜하기 -->
 					<div class="d-flex align-items-center ml-4">
@@ -61,7 +61,6 @@
 						</c:if>
 					</div>
 				</div>
-				<button type="button" id="chatBtn">채팅하기</button>
 			</div>
 			<!-- 댓글 내용 -->
 			<c:forEach items="${postView.commentList}" var="commentView">

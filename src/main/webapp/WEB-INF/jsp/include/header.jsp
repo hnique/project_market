@@ -23,19 +23,19 @@
 
 <div class="middle-menu d-flex">
 	<!-- logo -->
-	<div class="logo col-3 d-flex justify-content-center align-items-center">
+	<div class="logo col-2 d-flex justify-content-center align-items-center">
 		<a href="/market/main_view"><h2 class="font-weight-bold">중고마켓</h2></a>
 	</div>
 	
 	<!-- search bar -->
-	<form action="/post/post_list_view" method="GET" class="search col-6 d-flex justify-content-center align-items-center">
+	<form action="/post/post_list_view" method="GET" class="search col-8 d-flex justify-content-center align-items-center">
 		<input type="text" name="keyword" class="form-control" placeholder="어떤 상품을 찾으시나요?">
 		<img id="searchIcon" src="https://www.iconninja.com/files/567/43/720/search-icon.png" alt="검색아이콘">
 		<button id="searchBtn" class="d-none"></button>
 	</form>
 	
 	<!-- icon -->
-	<div class="icon col-3 d-flex justify-content-around align-items-center">
+	<div class="icon col-2 d-flex justify-content-around align-items-center">
 		<!-- 회원정보 수정 -->
 		<div class="userIcon">
 			<a href="/user/update_info_view"><img src="https://www.iconninja.com/files/66/635/783/user-icon.png" alt="프로필아이콘" width="35px"></a>
@@ -44,11 +44,6 @@
 		<!-- 찜 목록 -->
 		<div class="wishIcon">
 			<a href="/like/wish_list_view"><img src="https://www.iconninja.com/files/937/385/150/hearts-icon.png" alt="찜목록아이콘" width="35px"></a>
-		</div>
-		
-		<!-- 알림 목록 -->
-		<div class="alarmIcon">
-			<a href="#"><img src="https://www.iconninja.com/files/198/215/818/bell-2-icon.png" alt="알림목록아이콘" width="35px"></a>
 		</div>
 	</div>
 </div>
@@ -73,7 +68,6 @@
 		<li class="nav-menu"><a href="/post/write_sale_post_view" class="menu-text">판매등록</a></li>
 		<li class="nav-menu"><a href="/post/write_purchase_post_view" class="menu-text">구매등록</a></li>
 		<li class="nav-menu"><a href="/post/my_page_view" class="menu-text">마이페이지</a></li>
-		<li class="nav-menu"><a href="#" class="menu-text">채팅</a></li>
 	</ul>
 </nav>
 

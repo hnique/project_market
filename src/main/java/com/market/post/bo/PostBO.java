@@ -6,7 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,8 +72,14 @@ public class PostBO {
 		return postView;	
 	}
 	
-	public List<PostEntity> getPostByIdDesc() {
-		return postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+	public List<PostEntity> getPostByIdDesc(Pageable pageable) {
+		List<PostEntity> list = new ArrayList<>();
+		Page<PostEntity> pageList = postRepository.findAll(pageable);
+		
+		if (pageList!=null && pageList.hasContent()) { // Page를 List로 변환
+			list = pageList.getContent();
+		}
+		return list;
 	}
 	
 	public PostEntity getPostById(int postId) {

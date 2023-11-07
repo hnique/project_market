@@ -93,7 +93,7 @@ header .menu ul .bx-menu:hover {
 	color:darkcyan;
 }
 header .menu ul .nav-menu {
-	margin:0 90px 7px 100px;
+	margin:0 90px 7px 150px;
 }
 header .menu ul li .menu-text {
 	text-decoration:none;
@@ -731,11 +731,6 @@ header .menu ul .category li a:hover {
 }
 .wish-list-box td input {
 	margin-left:3px;
-}
-.wish-list-box .delete-btn {
-	font-size:28px;
-	margin-right:11px;
-	cursor:pointer;
 }
 .wish-list-box #mainBtn {
 	width:90px;

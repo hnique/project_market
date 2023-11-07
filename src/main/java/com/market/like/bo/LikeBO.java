@@ -43,4 +43,22 @@ public class LikeBO {
 	public void deleteLikeByPostId(int postId) {
 		likeMapper.deleteLikeByPostId(postId);
 	}
+	
+	public void deleteLikeByIdList(List<String> postId) {
+		if (postId != null) {
+			if (postId.contains("on")) {
+				postId.remove("on");
+			}
+			String[] ids = postId.toArray(new String[postId.size()]);
+			int[] idList = new int[ids.length];
+			
+			for (int i = 0; i <ids.length; i++) {
+				idList[i] = Integer.parseInt(ids[i]);
+			}
+			
+			for (int i = 0; i < idList.length; i++) {
+				likeMapper.deleteLikeByPostId(idList[i]);
+			}
+		}
+	}
 }
